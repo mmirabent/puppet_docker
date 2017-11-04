@@ -1,5 +1,5 @@
 # Using centos 7 base image, because dealing with RHEL's subscription manger HAX is pissing me off
-FROM centos:7
+FROM registry.access.redhat.com/rhel7
 
 # Add Puppet Keys
 RUN rpm --import http://yum.puppetlabs.com/RPM-GPG-KEY-puppetlabs
