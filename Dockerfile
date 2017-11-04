@@ -10,3 +10,6 @@ RUN rpm --import http://yum.puppetlabs.com/RPM-GPG-KEY-puppet
 RUN yum install -y http://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm
 
 RUN yum install -y puppet
+
+VOLUME ["/etc/puppetlabs/puppet"]
+
