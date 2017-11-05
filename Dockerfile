@@ -13,9 +13,11 @@ RUN yum install -y puppet
 # Install things so that grpc will build
 RUN yum install -y make gcc gcc-c++
 
-RUN ["/opt/puppetlabs/puppet/bin/gem", "install", "--no-document", "grpc"]
-RUN ["/opt/puppetlabs/puppet/bin/gem", "install", "--no-document", "cisco_node_utils"]
+RUN ["/opt/puppetlabs/puppet/bin/gem", "install", "--no-document", "--verbose", "grpc"]
+RUN ["/opt/puppetlabs/puppet/bin/gem", "install", "--no-document", "--verbose", "cisco_node_utils"]
 
 RUN yum autoremove -y make gcc gcc-c++
+RUN yum autoremove
+RUN yum clean all
 
 ENTRYPOINT ["/opt/puppetlabs/puppet/bin/puppet", "agent", "--no-daemonize"]
