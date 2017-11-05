@@ -6,10 +6,8 @@ RUN rpm --import http://yum.puppetlabs.com/RPM-GPG-KEY-puppetlabs
 RUN rpm --import http://yum.puppetlabs.com/RPM-GPG-KEY-reductive
 RUN rpm --import http://yum.puppetlabs.com/RPM-GPG-KEY-puppet
 
-# Add puppet repo
+# Add puppet repo and install puppet
 RUN yum install -y http://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm
-
 RUN yum install -y puppet
 
-VOLUME ["/etc/puppetlabs/puppet"]
-
+ENTRYPOINT ["/opt/puppetlabs/puppet/bin/puppet", "agent", "--no-daemonize"]
